@@ -1,0 +1,181 @@
+/* the main thing i did to make this website responsive was to hide the side bar in smaller screens by default */
+/* and when click on show playlist it appears, i used checkbox checked css selector to do the same */
+
+@media screen and (max-width: 930px) {
+  label[for="show-playlist"] {
+    display: inline-block;
+    position: absolute;
+    right: -5px;
+    top: 90px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--secondary-text);
+    background-color: var(--background);
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .aside2 {
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    background-color: var(--bottom-gradient);
+    border-top-left-radius: 15px;
+    right: 0px;
+    top: 140px;
+    z-index: 3;
+    overflow: hidden;
+    transition: all 0.7s;
+  }
+
+  input[id="show-playlist"]:checked ~ .aside2 {
+    visibility: visible;
+    width: 330px;
+  }
+
+  input[id="show-playlist"]:checked + label:before {
+    content: "Hide Playlist";
+    position: absolute;
+    right: 28px;
+    padding: 0px 6px;
+    background-color: var(--background);
+    color: var(--secondary-text);
+  }
+
+  .aside1 {
+    width: 100%;
+  }
+
+  .carousel div:nth-child(1) {
+    display: none;
+  }
+
+  .carousel div {
+    width: 45vw;
+    height: 45vw;
+  }
+
+  .explore div {
+    min-width: 270px;
+    font-size: 1.4rem;
+  }
+
+  .playlist {
+    margin-bottom: 20px;
+  }
+
+  .more-controls i:nth-child(1) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .explore div {
+    min-width: none;
+    width: 70%;
+    font-size: 1.7rem;
+  }
+
+  .time-bar {
+    width: 85%;
+  }
+
+  .song-description .card {
+    overflow: visible;
+  }
+}
+
+@media screen and (max-width: 572px) {
+  nav {
+    height: 60px;
+  }
+
+  nav div {
+    margin-top: 8px !important;
+  }
+
+  .search {
+    margin-top: 13px !important;
+    font-size: 1.7rem;
+  }
+
+  .search input {
+    font-size: 1.2rem;
+  }
+
+  html {
+    font-size: 0.8rem;
+  }
+
+  input[id="show-playlist"]:checked + label:before {
+    right: 21px;
+  }
+
+  .more-controls {
+    display: none;
+  }
+
+  .footer-middle {
+    margin-left: 20px;
+    width: 100%;
+  }
+
+  .card-container .card {
+    width: 90%;
+  }
+
+  .latest-card {
+    padding: 12px;
+    width: 140px;
+  }
+
+  .latest-card .title {
+    margin-top: 7px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .search {
+    font-size: 0.9rem;
+    height: 33px;
+  }
+
+  .search * {
+    margin: 4px 0px;
+  }
+
+  .bell {
+    display: none;
+  }
+
+  .profile {
+    margin: 0px 5px;
+    display: none;
+  }
+
+  input[id="show-playlist"]:checked ~ .aside2 {
+    width: 95vw;
+  }
+
+  footer {
+    height: 55px;
+  }
+
+  .song-description .card img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .song-description .card {
+    font-size: 0.7rem;
+    padding: 10px 0px;
+  }
+
+  .song-description .card .title {
+    padding: 0px 8px;
+  }
+
+  .time-bar {
+    margin-top: 6px;
+  }
+}

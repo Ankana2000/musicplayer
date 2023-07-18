@@ -1,0 +1,356 @@
+:root {
+  --background: #181818;
+  --menu-bar: #121212;
+  --top-gradient: #404040;
+  --bottom-gradient: #282828;
+  --primary-text: #ffffff;
+  --secondary-text: #818181;
+  --control-icon: #a4a4a4;
+  --time-bar: #404040;
+}
+
+/* To hide scroll  bar */
+.left-section,
+.right-inner {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.left-section::-webkit-scrollbar,
+.right-inner::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+main {
+  width: 95%;
+}
+
+.left-section {
+  width: 70%;
+  height: 86vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.jumbotron {
+  height: 22vw;
+  width: 100%;
+  margin-top: 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--menu-bar);
+  margin-bottom: 40px;
+
+  overflow: hidden;
+  border-radius: 20px;
+  font-size: 0.8rem;
+
+  background-image: linear-gradient(to bottom, transparent, rgb(56, 55, 55));
+}
+/* image insider jumbotron */
+.jumbotron-img {
+  height: 22vw;
+  width: 22vw;
+  background-image: url("C:/Users/ankan/OneDrive/Pictures/coldplaymember.jpeg");
+  background-size: cover;
+}
+/* right part of the jumbotron */
+.jumbotron-detail {
+  width: 67%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 12px 10px;
+  color: var(--secondary-text);
+}
+
+.jumbotron-detail h1 {
+  font-size: 1.7rem;
+  color: var(--primary-text);
+}
+
+/* buttons on jumbotron */
+.btns > button {
+  border: 0px;
+  height: 3vw;
+  min-height: 23px;
+  width: 10vw;
+  min-width: 90px;
+  color: var(--secondary-text);
+  font-size: 1.2vw;
+  background-color: var(--bottom-gradient);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btns > button:hover {
+  background-color: var(--top-gradient);
+  color: var(--primary-text);
+  border: 1px solid white;
+}
+
+.jumbotron-detail * {
+  margin-bottom: 5px;
+}
+
+/* doing some minor tweaks to the card and containor from index file */
+.playlist-card {
+  width: 95%;
+}
+
+.card-container {
+  margin-bottom: 10px;
+}
+
+.card .options {
+  text-align: right;
+}
+
+/* right section starts here */
+.right-section {
+  width: 30%;
+}
+
+.section-heading {
+  margin: 15px 17.5px;
+}
+
+.playlist-title p {
+  padding-top: 7px;
+}
+
+.right-inner {
+  height: 30vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+}
+
+.right-lower {
+  height: 40vh;
+}
+
+.right-lower .card {
+  height: 40px;
+  font-size: 0.7rem;
+}
+
+.right-lower .card img {
+  width: 40px;
+}
+
+.right-lower .card .options {
+  margin: 12px 15px;
+}
+
+/* Button to show Playlist on smaller screens */
+/* On larger screen it should be hidden */
+
+#show-playlist {
+  display: none;
+}
+
+label[for="show-playlist"] {
+  display: none;
+}
+
+label[for="more"]:checked ~ input {
+  display: none;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 1000px) {
+  /* reused this checkbox button from index file */
+  label[for="show-playlist"] {
+    display: inline-block;
+    position: absolute;
+    right: -5px;
+    top: 47px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--secondary-text);
+    background-color: var(--background);
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .right-section {
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    background-color: var(--bottom-gradient);
+    border-top-left-radius: 15px;
+    right: 0px;
+    top: 90px;
+    z-index: 3;
+    overflow: hidden;
+    transition: all 0.7s;
+  }
+
+  input[id="show-playlist"]:checked ~ .right-section {
+    visibility: visible;
+    width: 330px;
+  }
+
+  input[id="show-playlist"]:checked + label:before {
+    content: "Hide Playlist";
+    position: absolute;
+    right: 28px;
+    padding: 0px 6px;
+    background-color: var(--background);
+    color: var(--secondary-text);
+  }
+
+  .left-section {
+    width: 100%;
+  }
+
+  .jumbotron {
+    height: 35vw;
+  }
+  .jumbotron-img {
+    width: 35vw;
+    height: 100%;
+  }
+
+  .btns > button {
+    font-size: 0.9rem;
+  }
+
+  .playlist {
+    margin-bottom: 20px;
+  }
+
+  .more-controls i:nth-child(1) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .jumbotron {
+    height: 50vw;
+  }
+  .jumbotron-img {
+    width: 50vw;
+    height: 100%;
+  }
+
+  .explore div {
+    min-width: none;
+    width: 70%;
+    font-size: 1.7rem;
+  }
+
+  .time-bar {
+    width: 85%;
+  }
+
+  .song-description .card {
+    overflow: visible;
+  }
+}
+
+@media screen and (max-width: 572px) {
+  .jumbotron {
+    height: 80vw;
+  }
+
+  .jumbotron-img {
+    width: 40vw;
+    height: 100%;
+    background-position: center;
+  }
+
+  .jumbotron-detail * {
+    margin-bottom: 2vw;
+  }
+
+  nav div {
+    margin-top: 8px !important;
+  }
+
+  .search {
+    margin-top: 13px !important;
+    font-size: 1.7rem;
+  }
+
+  .search input {
+    font-size: 1.2rem;
+  }
+
+  html {
+    font-size: 0.8rem;
+  }
+
+  input[id="show-playlist"]:checked + label:before {
+    right: 21px;
+  }
+
+  footer {
+    height: 90px;
+  }
+
+  .more-controls {
+    display: none;
+  }
+
+  .footer-middle {
+    margin-left: 20px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .right-section {
+    width: 95% !important;
+  }
+
+  .search {
+    font-size: 0.9rem;
+    height: 33px;
+  }
+
+  .search * {
+    margin: 4px 0px;
+  }
+
+  .bell {
+    display: none;
+  }
+
+  .profile {
+    margin: 0px 5px;
+    display: none;
+  }
+
+  input[id="show-playlist"]:checked ~ .aside2 {
+    width: 95vw;
+  }
+
+  footer {
+    height: 55px;
+  }
+
+  .song-description .card img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .song-description .card {
+    font-size: 0.7rem;
+    padding: 10px 0px;
+  }
+
+  .song-description .card .title {
+    padding: 0px 8px;
+  }
+
+  .time-bar {
+    margin-top: 6px;
+  }
+}
